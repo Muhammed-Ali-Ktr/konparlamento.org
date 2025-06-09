@@ -364,3 +364,8 @@ function toggleImages(container) {
 document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
     document.querySelector('.nav-links').classList.toggle('show');
 });
+
+function toggleImages(container) {
+  const images = container.querySelectorAll('.toggle-image');
+  images.forEach(img => img.classList.toggle('active'));
+}
