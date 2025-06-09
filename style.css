@@ -1649,13 +1649,15 @@ footer {
 
 .mv-box {
     background: white;
-    padding: 50px 40px;
+    padding: 50px 40px ;
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    text-align: center;
+    overflow: visible;
 }
 
 .mv-box::before {
@@ -1717,6 +1719,41 @@ footer {
     font-size: 1.1rem;
     text-align: justify;
 }
+
+/* Mevcut koduna ekle / güncelle */
+.mv-box img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain; /* Eğer orantılı şekilde gösterim isteniyorsa */
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* Eğer resimler görünmüyor veya üst üste binmiş durumdaysa, kapsayıcıyı düzenle */
+.mv-box .image-toggle-container {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-bottom: 20px;
+    overflow: visible;
+}
+
+.image-toggle-container img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    display: block;
+    position: relative;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Aktif olan resmi göster */
+.image-toggle-container img:not(.active) {
+    display: none;
+}
+
 
 /* Ekibimiz Bölümü */
 .team-section {
@@ -2062,6 +2099,8 @@ body {
 }
 
 /* Ana Navigasyon */
+
+
 .main-nav {
     background-color: white;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -2095,6 +2134,18 @@ body {
     display: flex;
     list-style: none;
     align-items: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+    }
+    .nav-links.show {
+        display: flex;
+    }
 }
 
 .nav-links li {
@@ -2681,4 +2732,128 @@ footer {
     }
 }
 
+.logo {
+  background: none; /* Arka plan yok */
+  display: block;
+  width: 150px; /* İstediğin boyut */
+  height: auto;
+}
+ 
 
+
+/* üst üste resim değiştirme */
+.image-toggle-container {
+  position: relative;
+  width: 100%; /* Gerekirse sabit genişlik ver */
+  max-width: 500px;
+  cursor: pointer;
+}
+
+.toggle-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 0.4s ease;
+  opacity: 0;
+  z-index: 1;
+}
+
+.toggle-image.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+
+/* Tüm elementlerin box modelini düzeltme */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body için temel ayarlar */
+body {
+    width: 100%;
+    overflow-x: hidden; /* Yatay kaydırmayı engeller */
+}
+
+/* Container sınıfı için genişlik kontrolü */
+.container {
+    width: 100%;
+    max-width: 1200px; /* Maksimum genişlik belirleyin */
+    margin: 0 auto;
+    padding: 0 15px; /* Kenar boşlukları ekleyin */
+}
+
+
+/* Mobil menü butonu ve navigasyon */
+.mobile-menu-btn {
+    display: block;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+}
+
+.nav-links.show {
+    display: flex;
+}
+
+.nav-links li {
+    width: 100%;
+    text-align: center;
+}
+
+.nav-links a {
+    display: block;
+    padding: 10px 15px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.team-members, .mv-boxes, .achievements {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.team-member, .mv-box, .achievement-item {
+    flex: 1 1 100%; /* Mobilde tek sütun */
+    max-width: 100%;
+    margin: 10px 0;
+}
+
+@media (min-width: 768px) {
+    .team-member, .mv-box, .achievement-item {
+        flex: 1 1 calc(50% - 20px); /* Tablette iki sütun */
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (min-width: 992px) {
+    .team-member, .mv-box, .achievement-item {
+        flex: 1 1 calc(25% - 20px); /* Masaüstünde dört sütun */
+        max-width: calc(25% - 20px);
+    }
+}
+
+html {
+    overflow-x: hidden;
+}
+
+/* mobil menü simgesi */
+.nav-links.active {
+    display: block;
+}
