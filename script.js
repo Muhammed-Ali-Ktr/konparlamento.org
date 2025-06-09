@@ -352,3 +352,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // İstersen ileride harita entegrasyonu buraya eklenebilir
 });
+
+
+function toggleImages(container) {
+  const images = container.querySelectorAll('.toggle-image');
+  images.forEach(img => img.classList.toggle('active'));
+}
+
+
+//apply.js 
+document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('show');
+});
