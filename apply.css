@@ -74,6 +74,71 @@ body {
 }
 
 /* Ana Navigasyon */
+/* Mobil menü butonu ve navigasyon */
+.mobile-menu-btn {
+    display: block;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+}
+
+.nav-links.show {
+    display: flex;
+}
+
+.nav-links li {
+    width: 100%;
+    text-align: center;
+}
+
+.nav-links a {
+    display: block;
+    padding: 10px 15px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.team-members, .mv-boxes, .achievements {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.team-member, .mv-box, .achievement-item {
+    flex: 1 1 100%; /* Mobilde tek sütun */
+    max-width: 100%;
+    margin: 10px 0;
+}
+
+@media (min-width: 768px) {
+    .team-member, .mv-box, .achievement-item {
+        flex: 1 1 calc(50% - 20px); /* Tablette iki sütun */
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (min-width: 992px) {
+    .team-member, .mv-box, .achievement-item {
+        flex: 1 1 calc(25% - 20px); /* Masaüstünde dört sütun */
+        max-width: calc(25% - 20px);
+    }
+}
+
+html {
+    overflow-x: hidden;
+}
 header {
     background-color: var(--bg-white);
     box-shadow: var(--shadow-md);
@@ -131,6 +196,25 @@ header {
     color: var(--primary-color);
     font-size: 24px;
     cursor: pointer;
+}
+
+.mobile-menu-btn {
+    display: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+    }
+    .nav-links.show {
+        display: flex;
+    }
 }
 
 /* Butonlar */
