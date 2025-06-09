@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Başvuru Yap | Konparlamento</title>
+    <title>Konparlamento | Başvuru Yap</title>
     <link rel="stylesheet" href="apply.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="KONPARLAMENTO.jpg" type="image/JPG">
+    <link rel="icon" href="image/konparlamento-logo.png" type="image/PNG">
 </head>
 <body>
     <!-- Üst Navigasyon -->
@@ -31,7 +31,7 @@
         <nav class="main-nav">
             <div class="container">
                 <a href="index.html" class="logo">
-                    <img src="KONPARLAMENTO.jpg" alt="Konparlamento Logo">
+                    <img src="image/konparlamento-logo.png" alt="Konparlamento Logo" style="background: none;">
                     <span>Konparlamento</span>
                 </a>
                 <ul class="nav-links">
@@ -40,7 +40,7 @@
                     <li><a href="events.html">Organizasyonlar</a></li>
                     <li><a href="gallery.html">Galeri</a></li>
                     <li><a href="contact.html">İletişim</a></li>
-                    <li><a href="apply.html" class="btn">Başvuru Yap</a></li>
+                    <li><a href="apply.html" class="btn" class="active" >Başvuru Yap</a></li>
                 </ul>
                 <div class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
@@ -404,7 +404,11 @@
             </div>
         </div>
     </footer>
-
+    <script>
+    document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.toggle('show');
+    });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
